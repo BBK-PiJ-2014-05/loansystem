@@ -1,0 +1,54 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+@(title: String)(content: Html)(implicit messages: Messages, flash: Flash)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="@routes.Application.index()" >@Messages("application.name")</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="@routes.Customers.list()">@Messages("customers.list")</a></li>
+                        <li><a href="@routes.Customers.newCustomer()">@Messages("customers.new.command")</a></li>
+                        <li><a href="#">Details</a></li>
+                        <li><a href="#">Contacts</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="@routes.Application.hello()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container">
+                @if(flash.get("success").isDefined){
+                    <div class="alert alert-success">
+                        @flash.get("success")
+                    </div>
+                }
+                @if(flash.get("error").isDefined){
+                    <div class="alert alert-error">
+                        @flash.get("error")
+                    </div>
+                }
+                @content
+                @debug()
+            </div>
+            </div>
+    </body>
+</html>

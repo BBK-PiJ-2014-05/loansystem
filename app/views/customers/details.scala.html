@@ -1,0 +1,11 @@
+@(customer:Customer)(implicit messages: Messages, flash: Flash)
+
+
+@main(Messages("customers.details")) {
+    <h2>
+        @Messages("customers.name"): @customer.last
+        <br>
+        @Messages("customers.address"): @customer.address
+
+    </h2>
+}

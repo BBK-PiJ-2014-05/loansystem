@@ -1,0 +1,25 @@
+@(customerForm:Form[Customer])(implicit messages: Messages,flash: Flash)
+
+@import helper._
+
+
+@main(Messages("customers.form")){
+
+    <h2>@Messages("customers.form")</h2>
+
+    @helper.form(action = routes.Customers.save()) {
+        <fieldset>
+            <legend>
+                @Messages("customers.details",Messages("customers.new"))
+            </legend>
+            @helper.inputText(customerForm("cid"))
+            @helper.inputText(customerForm("first"))
+            @helper.inputText(customerForm("last"))
+            @helper.inputText(customerForm("address"))
+        </fieldset>
+        <p><input type="submit" class="btn primary"
+        value='@Messages("customers.new.submit")'></p>
+    }
+
+
+}

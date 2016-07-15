@@ -1,0 +1,18 @@
+application.name = Test Management System
+application.login = Login
+application.newuser = Create a New User Account
+
+
+customers.name = Name
+customers.address = Address
+customers.details = Customer Details
+customers.list = Customers
+customers.form = Customer Details
+customers.new = (new)
+customers.new.command = New
+
+customers.new.submit = Add
+customers.new.success = Successfully added customer {0}.
+
+validation.errors = Please correct the errors in the form
+validation.cid.duplicate = A customer already exists with that ID.
